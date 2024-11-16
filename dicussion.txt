@@ -1,0 +1,181 @@
+trainer {id, name, location, technology, phone_number}
+
+vendor {id, name, location, gst_number, ratings}
+
+CRUD operations for the trainer entity 
+
+Securing the trainers via authentication and authorization using JWT
+
+MERN 
+    - mongo - document based - noSQL - normalized | hierarchical data models 
+        : database for our application 
+    - express JS + node : backend application 
+        networking calls to the backend app from frontend app 
+        REST APIs = http based web services 
+    - react JS + node : frontend application 
+        SPA - single page application 
+        web UIs 
+
+    development stack : 
+        Mongo + Express + React + Node 
+            axios 
+            mongoose 
+
+            HTML + CSS + Bootstrap + JavaScript
+
+    [ frontend ] <- ajax/{axios}/fetch API -> [ backend ] <- mongoose -> [ mongo ]
+      react JS       axios                      express JS   mongoose     mongo 
+      node JS                                   node JS
+    1. mongoose is the driver + libarary of node JS 
+    2. axios is the libarary to call the API End Points 
+
+    3. frontend UIs (pages / forms) using react JS 
+    4. backend API End Points using express JS 
+
+
+    frontend                backend                 mongo 
+    computer                computer                computer 
+
+    deployment: cluster + cloud [ multiple computers having many services ]
+
+Developing backend application: 
+    node JS + express JS (package on node)
+
+    what is node JS? Javascript based engine for server side development .
+
+    JavaScript [ C / C++ / Java / C# | Python ]
+        - Programming Fundamentals 
+            operators [arith, relationl, logical]
+            if..else, switch, 
+            for, while, do..while 
+            break, continue, function 
+
+            composite data: structure / object 
+
+    What do we do in the backend application? 
+        From the frontend we will receive network/service calls to consume the resources like trainer resource. 
+
+        CRUD operations for trainer resource [model / collection - document].
+
+        1. create trainer - add trainer into mongo trainer collection 
+        2. update trainer by id- edit and update trainer into monog trainer collection 
+        3. delete trainer by id - delete the trainer from mongo trainer collection 
+        4. read all - read all trainers from mongo trainer collection 
+        5. read by id - read one trainer by id 
+
+        Base URL: http://localhost:8080
+        Resource URLs starts with   /trainers       -> routes
+            End Points          about               handlers (endpoint handler function)         
+            (request method + URL)
+            (verb           + noun)
+            POST /trainers      create trainer      create
+            GET  /trainers      read all            readAll
+            PUT  /trainers/:id  update by id        update
+            GET  /trainers/:id  read by id          readById
+            DELETE /trainers/:id delete by id       remove
+    Project Structure [folder structure] for backend application:
+        Configuration  /config.js
+        Routes         /routes/AppRoutes.js 
+        Controller     /controller/TrainerController.js 
+                       /controller/AppController.js 
+        Model          /model/AppModel.js         
+        Application    /app.js                  === Entry Point 
+
+
+    what is promise?
+        functional object 
+        state based object : acceptance / rejection / pending    
+            to handle the acceptance : then()   
+            to handle the rejection : catch()
+
+            asynct/await    try..catch 
+
+
+
+
+Developing frontend application:
+    node + npm + npx 
+
+    npx -> react application 
+        initializer application 
+        .. develop it as fully functional application
+
+    Basics of React JS 
+        - define the component (functional [promoted] / class)
+        - many components -> routes [react route]   SPA (single page application)
+        /publi/index.html 
+            Attach the bootstrap as CDN
+        /src/trainers
+            TrainerAdd.js 
+            TrainerList.js  
+            TrainerEdit.js 
+        /src/
+            App.js      Define Routes 
+        /header/ 
+            LoggedInHeader.js 
+
+        trainers list page:
+            table 
+            <add trainer>
+            trainer     <edit> <delete> 
+
+        trainer add / edit page: 
+            name : 
+            location : 
+
+            <Create Trainer> 
+        
+    hooks for the functional compoents: 
+        state : used by the component to maitain the state of the compoent 
+        meaning of the hook : connection 
+
+        state for the functional component maintained in the framework 
+        get the hook for functional component to make that hook functionality 
+
+        useState synax: 
+
+        <arrayOfTwoElements> useState(initialData);
+
+        useState takes the argument 
+        which is the initial state of the component 
+        initialData can be primitive type 
+            like number, string, json, array of json
+        
+        usestate returns two element array 
+        the first element is reference to the state object 
+        the secodn element is the function to update the state 
+
+
+        for the state managment we use useState hook.
+        for routing purpose
+            - useNavigate hook to navigate from one route component to another route   component.
+            - useParams hook to read the path variable from url of the route 
+        for life cycle management:
+            useEffect hook for functional component to maintain 
+            life cycle of the react components: [side effect calls]
+                after mount       :
+                    register to third party library 
+                    backend call for initializing the page   
+                after rendered 
+                    gaming application 
+                        if state changed | to update the UI 
+                before unmount 
+                    unregister the third party library 
+
+
+    useEffect syntax: 
+        useEffect(<funcation as arg>, array);
+
+        the first functional argument 
+        will have the code for "after mount" life cycle. 
+
+        the first functional argument 
+        may have return type 
+        by which we will define 
+        the "before unmount" life cycle 
+
+        the second array argument 
+        takes the dependecies objects or functions 
+        to tell the react to effect 
+        after rendered to render the ui 
+        for changes in the dependent object.
